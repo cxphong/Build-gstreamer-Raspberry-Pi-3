@@ -13,6 +13,7 @@ sudo apt-get remove gstreamer-1.0
 After building success:
 
 Header is in /usr/local/inlude/gstreamer-1.0
+
 Lib is in /usr/local/lib
 
 ## 3. Build config
@@ -21,8 +22,13 @@ To link header & lib when build your application
 
 ```xml
 sudo vi /etc/ld.so.conf
+```
+
+Enter
 /usr/local/lib
 
+
+```bash
 sudo ldconfig
 ```
 
