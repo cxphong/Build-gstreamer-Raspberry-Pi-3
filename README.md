@@ -25,8 +25,10 @@ sudo vi /etc/ld.so.conf
 ```
 
 Enter
-/usr/local/lib
 
+```text
+/usr/local/lib
+```
 
 ```bash
 sudo ldconfig
