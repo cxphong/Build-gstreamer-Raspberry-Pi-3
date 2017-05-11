@@ -51,7 +51,7 @@ cd gstreamer
 [ ! -d gst-plugins-base ] && git clone git://anongit.freedesktop.org/git/gstreamer/gst-plugins-base
 [ ! -d gst-plugins-good ] && git clone git://anongit.freedesktop.org/git/gstreamer/gst-plugins-good
 [ ! -d gst-plugins-bad ] && git clone git://anongit.freedesktop.org/git/gstreamer/gst-plugins-bad
-# [ ! -d gst-plugins-ugly ] && git clone git://anongit.freedesktop.org/git/gstreamer/gst-plugins-ugly
+[ ! -d gst-plugins-ugly ] && git clone git://anongit.freedesktop.org/git/gstreamer/gst-plugins-ugly
 # [ ! -d gst-libav ] && git clone git://anongit.freedesktop.org/git/gstreamer/gst-libav
 # [ ! -d gst-omx ] && git clone git://anongit.freedesktop.org/git/gstreamer/gst-omx
 # [ ! -d gst-python ] && git clone git://anongit.freedesktop.org/git/gstreamer/gst-python
