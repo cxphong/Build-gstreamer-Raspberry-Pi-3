@@ -8,6 +8,7 @@ sudo apt-get remove gstreamer-1.0
 ## 2. Build
 
 ```bash
+chmod +x gstreamer-build.sh
 ./gstreamer-build.sh
 ```
 After building success:
