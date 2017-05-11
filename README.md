@@ -30,6 +30,8 @@ Enter
 /usr/local/lib
 ```
 
+Link 
+
 ```bash
 sudo ldconfig
 ```
