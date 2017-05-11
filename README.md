@@ -22,13 +22,13 @@ Lib is in /usr/local/lib
 To link header & lib when build your application
 
 ```xml
-sudo vi /etc/ld.so.conf
+sudo nano /etc/ld.so.conf
 ```
 
-Enter
+Add
 
 ```text
-/usr/local/lib
+include /usr/local/lib
 ```
 
 Link 
