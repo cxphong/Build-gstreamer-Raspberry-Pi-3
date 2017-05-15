@@ -40,7 +40,7 @@ cd src
 [ ! -d gstreamer ] && mkdir gstreamer
 cd gstreamer
 
-get repos if they are not there yet
+#get repos if they are not there yet
 [ ! -d gstreamer ] && git clone git://anongit.freedesktop.org/git/gstreamer/gstreamer
 [ ! -d gst-plugins-base ] && git clone git://anongit.freedesktop.org/git/gstreamer/gst-plugins-base
 [ ! -d gst-plugins-good ] && git clone git://anongit.freedesktop.org/git/gstreamer/gst-plugins-good
