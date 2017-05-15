@@ -1,13 +1,13 @@
 ## 1. Uninstall default gstreamer 1.0
 
-```bash
+```Shell
 sudo apt-get remove gstreamer1.0
 sudo apt-get remove gstreamer-1.0
 ```
 
 ## 2. Build
 
-```bash
+```Shell
 chmod +x gstreamer-build.sh
 ./gstreamer-build.sh
 ```
@@ -21,19 +21,19 @@ Lib is in /usr/local/lib
 
 To link header & lib
 
-```xml
+```Shell
 sudo nano /etc/ld.so.conf
 ```
 
 Add
 
-```text
+```Shell
 include /usr/local/lib
 ```
 
 Link 
 
-```bash
+```Shell
 sudo ldconfig
 ```
 
