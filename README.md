@@ -17,9 +17,9 @@ Header is in /usr/local/inlude/gstreamer-1.0
 
 Lib is in /usr/local/lib
 
-## 3. Build config
+## 3. Config
 
-To link header & lib when build your application
+To link header & lib
 
 ```xml
 sudo nano /etc/ld.so.conf
