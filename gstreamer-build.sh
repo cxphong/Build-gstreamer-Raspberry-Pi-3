@@ -38,7 +38,7 @@ cd src
 [ ! -d gstreamer ] && mkdir gstreamer
 cd gstreamer
 
-# get repos if they are not there yet
+get repos if they are not there yet
 [ ! -d gstreamer ] && git clone git://anongit.freedesktop.org/git/gstreamer/gstreamer
 [ ! -d gst-plugins-base ] && git clone git://anongit.freedesktop.org/git/gstreamer/gst-plugins-base
 [ ! -d gst-plugins-good ] && git clone git://anongit.freedesktop.org/git/gstreamer/gst-plugins-good
@@ -47,47 +47,36 @@ cd gstreamer
 [ ! -d gst-omx ] && git clone git://anongit.freedesktop.org/git/gstreamer/gst-omx
 
 export LD_LIBRARY_PATH=/usr/local/lib/
-# checkout branch (default=master) and build & install
 cd gstreamer
-git checkout -t origin/$BRANCH || true
 sudo make uninstall || true
-git pull
 ./autogen.sh --disable-gtk-doc
 make -j4
 sudo make install
 cd ..
 
 cd gst-plugins-base
-git checkout -t origin/$BRANCH || true
 sudo make uninstall || true
-git pull
 ./autogen.sh --disable-gtk-doc
 make -j4
 sudo make install
 cd ..
 
 cd gst-plugins-good
-git checkout -t origin/$BRANCH || true
 sudo make uninstall || true
-git pull
 ./autogen.sh --disable-gtk-doc
 make -j4
 sudo make install
 cd ..
 
 cd gst-plugins-ugly
-git checkout -t origin/$BRANCH || true
 sudo make uninstall || true
-git pull
 ./autogen.sh --disable-gtk-doc
 make -j4
 sudo make install
 cd ..
 
 cd gst-plugins-bad
-git checkout -t origin/$BRANCH || true
 sudo make uninstall || true
-git pull
 # some extra flags on rpi
 ./configure CFLAGS="-I/opt/vc/include \
 -I/opt/vc/include/interface/vcos/pthreads \
@@ -103,8 +92,6 @@ cd ..
 # omx support
 cd gst-omx
 sudo make uninstall || true
-git pull
-
 export LDFLAGS='-L/opt/vc/lib' \
 CFLAGS='-I/opt/vc/include -I/opt/vc/include/IL -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host/linux -I/opt/vc/include/IL' \
 CPPFLAGS='-I/opt/vc/include -I/opt/vc/include/IL -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host/linux -I/opt/vc/include/IL'
