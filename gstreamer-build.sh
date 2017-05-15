@@ -5,6 +5,8 @@ set -e
 exec > >(tee build_gstreamer.log)
 exec 2>&1
 
+TAG=1.6.0
+
 # Update and Upgrade the Pi, otherwise the build may fail due to inconsistencies
 sudo apt-get update && sudo apt-get upgrade -y --force-yes
 
@@ -48,6 +50,7 @@ get repos if they are not there yet
 
 export LD_LIBRARY_PATH=/usr/local/lib/
 cd gstreamer
+git checkout tags/$TAG
 sudo make uninstall || true
 ./autogen.sh --disable-gtk-doc
 make -j4
@@ -55,6 +58,7 @@ sudo make install
 cd ..
 
 cd gst-plugins-base
+git checkout tags/$TAG
 sudo make uninstall || true
 ./autogen.sh --disable-gtk-doc
 make -j4
@@ -62,6 +66,7 @@ sudo make install
 cd ..
 
 cd gst-plugins-good
+git checkout tags/$TAG
 sudo make uninstall || true
 ./autogen.sh --disable-gtk-doc
 make -j4
@@ -69,6 +74,7 @@ sudo make install
 cd ..
 
 cd gst-plugins-ugly
+git checkout tags/$TAG
 sudo make uninstall || true
 ./autogen.sh --disable-gtk-doc
 make -j4
@@ -76,6 +82,7 @@ sudo make install
 cd ..
 
 cd gst-plugins-bad
+git checkout tags/$TAG
 sudo make uninstall || true
 # some extra flags on rpi
 ./configure CFLAGS="-I/opt/vc/include \
