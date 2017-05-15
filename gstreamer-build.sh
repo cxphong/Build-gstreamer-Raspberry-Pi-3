@@ -6,7 +6,7 @@ exec > >(tee build_gstreamer.log)
 exec 2>&1
 
 # Update and Upgrade the Pi, otherwise the build may fail due to inconsistencies
-grep -q BCM2709 /proc/cpuinfo && sudo apt-get update && sudo apt-get upgrade -y --force-yes
+sudo apt-get update && sudo apt-get upgrade -y --force-yes
 
 # Get the required libraries
 sudo apt-get install -y --force-yes build-essential autotools-dev automake autoconf \
@@ -109,7 +109,6 @@ export LDFLAGS='-L/opt/vc/lib' \
 CFLAGS='-I/opt/vc/include -I/opt/vc/include/IL -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host/linux -I/opt/vc/include/IL' \
 CPPFLAGS='-I/opt/vc/include -I/opt/vc/include/IL -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host/linux -I/opt/vc/include/IL'
 ./autogen.sh --disable-gtk-doc --with-omx-target=rpi
-#     # fix for glcontext errors and openexr redundant declarations
 make CFLAGS+="-Wno-error -Wno-redundant-decls" LDFLAGS+="-L/opt/vc/lib" -j4
 sudo make install
 cd ..
