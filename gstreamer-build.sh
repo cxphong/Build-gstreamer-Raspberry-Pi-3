@@ -1,14 +1,6 @@
 #!/bin/bash --debugger
 set -e
 
-BRANCH="master"
-if grep -q BCM2709 /proc/cpuinfo; then
-    echo "RPI BUILD!"
-    RPI="1"
-fi
-
-[ -n "$1" ] && BRANCH=$1
-
 # Create a log file of the build as well as displaying the build on the tty as it runs
 exec > >(tee build_gstreamer.log)
 exec 2>&1
