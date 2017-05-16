@@ -5,8 +5,6 @@ set -e
 exec > >(tee build_gstreamer.log)
 exec 2>&1
 
-TAG=1.6.0
-
 # Update and Upgrade the Pi, otherwise the build may fail due to inconsistencies
 sudo apt-get update && sudo apt-get upgrade -y --force-yes
 
@@ -50,53 +48,28 @@ cd gstreamer
 
 export LD_LIBRARY_PATH=/usr/local/lib/
 cd gstreamer
-git clean -f -d -x
-git checkout tags/$TAG
-git clean -f -d -x
-sudo make uninstall || true
 ./autogen.sh --disable-gtk-doc
 make -j4
 sudo make install
 cd ..
 
 cd gst-plugins-base
-git clean -f -d -x
-git checkout tags/$TAG
-git clean -f -d -x
-sudo make uninstall || true
 ./autogen.sh --disable-gtk-doc
 make -j4
 sudo make install
 cd ..
 
 cd gst-plugins-good
-git clean -f -d -x
-git checkout tags/$TAG
-git clean -f -d -x
-sudo make uninstall || true
 ./autogen.sh --disable-gtk-doc
 make -j4
 sudo make install
 cd ..
 
 cd gst-plugins-ugly
-git clean -f -d -x
-git checkout tags/$TAG
-git clean -f -d -x
-sudo make uninstall || true
 ./autogen.sh --disable-gtk-doc
 make -j4
 sudo make install
-cd ..
-
-cd gst-plugins-bad
-git clean -f -d -x
-git checkout tags/$TAG
-git clean -f -d -x
-sudo make uninstall || true
-# some extra flags on rpi
-./autogen.sh 
-./configure CFLAGS="-I/opt/vc/include -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host/linux/" \
+vc/include -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host/linux/" \
 LDFLAGS="-L/opt/vc/lib" \
 --disable-gtk-doc --disable-opengl --enable-gles2 --enable-egl --disable-glx \
 --disable-x11 --disable-wayland --enable-dispmanx \
@@ -108,9 +81,6 @@ cd ..
 
 # omx support
 cd gst-omx
-git clean -f -d -x
-sudo make uninstall || true
-git clean -f -d -x
 export LDFLAGS='-L/opt/vc/lib' \
 CFLAGS='-I/opt/vc/include -I/opt/vc/include/IL -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host/linux -I/opt/vc/include/IL' \
 CPPFLAGS='-I/opt/vc/include -I/opt/vc/include/IL -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host/linux -I/opt/vc/include/IL'
