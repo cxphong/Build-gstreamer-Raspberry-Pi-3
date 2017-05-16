@@ -85,7 +85,7 @@ cd gst-plugins-bad
 git checkout tags/$TAG
 sudo make uninstall || true
 # some extra flags on rpi
-./configure CFLAGS="-I/opt/vc/include \
+./autogen.sh CFLAGS="-I/opt/vc/include \
 -I/opt/vc/include/interface/vcos/pthreads \
 -I/opt/vc/include/interface/vmcs_host/linux/" LDFLAGS="-L/opt/vc/lib" \
 --disable-gtk-doc --disable-opengl --enable-gles2 --enable-egl --disable-glx \
