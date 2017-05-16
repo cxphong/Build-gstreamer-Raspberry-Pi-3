@@ -50,7 +50,9 @@ cd gstreamer
 
 export LD_LIBRARY_PATH=/usr/local/lib/
 cd gstreamer
+git clean -f -d -x
 git checkout tags/$TAG
+git clean -f -d -x
 sudo make uninstall || true
 ./autogen.sh --disable-gtk-doc
 make -j4
@@ -58,7 +60,9 @@ sudo make install
 cd ..
 
 cd gst-plugins-base
+git clean -f -d -x
 git checkout tags/$TAG
+git clean -f -d -x
 sudo make uninstall || true
 ./autogen.sh --disable-gtk-doc
 make -j4
@@ -66,7 +70,9 @@ sudo make install
 cd ..
 
 cd gst-plugins-good
+git clean -f -d -x
 git checkout tags/$TAG
+git clean -f -d -x
 sudo make uninstall || true
 ./autogen.sh --disable-gtk-doc
 make -j4
@@ -74,7 +80,9 @@ sudo make install
 cd ..
 
 cd gst-plugins-ugly
+git clean -f -d -x
 git checkout tags/$TAG
+git clean -f -d -x
 sudo make uninstall || true
 ./autogen.sh --disable-gtk-doc
 make -j4
@@ -82,7 +90,9 @@ sudo make install
 cd ..
 
 cd gst-plugins-bad
+git clean -f -d -x
 git checkout tags/$TAG
+git clean -f -d -x
 sudo make uninstall || true
 # some extra flags on rpi
 ./autogen.sh CFLAGS="-I/opt/vc/include \
@@ -98,7 +108,9 @@ cd ..
 
 # omx support
 cd gst-omx
+git clean -f -d -x
 sudo make uninstall || true
+git clean -f -d -x
 export LDFLAGS='-L/opt/vc/lib' \
 CFLAGS='-I/opt/vc/include -I/opt/vc/include/IL -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host/linux -I/opt/vc/include/IL' \
 CPPFLAGS='-I/opt/vc/include -I/opt/vc/include/IL -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host/linux -I/opt/vc/include/IL'
