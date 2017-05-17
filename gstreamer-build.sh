@@ -73,10 +73,18 @@ cd gst-plugins-ugly
 ./autogen.sh --disable-gtk-doc
 make -j4
 sudo make install
+vc/include -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host/linux/" \
+LDFLAGS="-L/opt/vc/lib" \
+--disable-gtk-doc --disable-opengl --enable-gles2 --enable-egl --disable-glx \
+--disable-x11 --disable-wayland --enable-dispmanx \
+--with-gles2-module-name=/opt/vc/lib/libGLESv2.so \
+--with-egl-module-name=/opt/vc/lib/libEGL.so
+make -j4
+sudo make install
 cd ..
 
 cd gst-plugins-bad
- some extra flags on rpi
+# some extra flags on rpi
 ./autogen.sh --disable-gtk-doc
 ./configure CFLAGS="-I/opt/vc/include -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host/linux/" LDFLAGS="-L/opt/vc/lib" \
 --disable-gtk-doc --disable-opengl --enable-gles2 --enable-egl --disable-glx \
