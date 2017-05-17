@@ -1,4 +1,4 @@
-#Build
+# Build
 
 ## 1. Uninstall default gstreamer 1.0
 
@@ -41,7 +41,7 @@ sudo ldconfig
 
 # Replace 
 
-## 1. Xoá version gstreamer hiện tại
+## 1. Delete old build
 	
 ```Shell
 sudo rm -rf /usr/local/include/gstreamer-1.0
@@ -49,16 +49,17 @@ sudo rm -rf  /usr/include/gstreamer-1.0
 sudo rm -rf /usr/local/lib/*
 ```
 
-## 2. Copy 
+## 2. Extract version you want & copy into file system
 
 ```Shell	
 sudo cp -r bin/* /usr/local/bin
 sudo cp -r gstreamer-1.0 /usr/local/include
+sudo cp -r lib/* /usr/local/lib
 ```
 
-## 3. Build config (Same build above)
+## 3. Build config (Same build above, if not)
 
-## 4. Checlk
+## 4. Check
 	
 ```Shell
 gst-launch-1.0 --version
