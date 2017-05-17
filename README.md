@@ -1,5 +1,7 @@
 The default Gstreamer version on Raspberry Pi 3 is 1.4.4, it has bugs. 
+
 This is guide to build gstreamer from scratch. Building task about 1h.
+
 Btw, I already built some version, so you can extract it to use
 
 # Build
