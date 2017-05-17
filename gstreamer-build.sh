@@ -1,9 +1,9 @@
 #!/bin/bash --debugger
 set -e
 
-rm -rf /usr/local/lib/* 
-rm -rf /usr/local/include/gstreamer-1.0
-rm -rf /usr/include/gstreamer-1.0
+# rm -rf /usr/local/lib/* 
+# rm -rf /usr/local/include/gstreamer-1.0
+# rm -rf /usr/include/gstreamer-1.0
 
 # Create a log file of the build as well as displaying the build on the tty as it runs
 exec > >(tee build_gstreamer.log)
