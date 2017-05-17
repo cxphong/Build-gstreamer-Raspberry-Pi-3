@@ -4,7 +4,7 @@ This is guide to build gstreamer from scratch. Building takes more 1h.
 
 Btw, I already built some version, so you can extract it to use
 
-# Build
+# Build from scratch
 
 ## 1. Uninstall default gstreamer 1.0
 
@@ -57,7 +57,7 @@ include /usr/local/lib
 sudo ldconfig
 ```
 
-# Replace 
+# Using prebuilt 
 
 ## 1. Delete old build
 	
