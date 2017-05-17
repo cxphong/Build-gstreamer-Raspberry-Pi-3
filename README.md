@@ -27,7 +27,7 @@ Lib is in /usr/local/lib
 
 ## 3. Config
 
-Copy header
+### Copy header
 
 ```Shell
 sudo cp -r /usr/local/include/gstreamer-1.0 /usr/include/
@@ -39,20 +39,19 @@ In some version *gstconfig.h* is not in */usr/local/include/gstreamer-1.0/gst/* 
 
 Must copy it to */usr/local/include/gstreamer-1.0/gst/*
 
-
-To link lib
+### To link lib
 
 ```Shell
 sudo nano /etc/ld.so.conf
 ```
 
-Add
+### Add
 
 ```Shell
 include /usr/local/lib
 ```
 
-Link 
+### Link 
 
 ```Shell
 sudo ldconfig
