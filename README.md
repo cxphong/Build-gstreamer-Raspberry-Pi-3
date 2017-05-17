@@ -33,7 +33,7 @@ Copy header
 sudo cp -r /usr/local/include/gstreamer-1.0 /usr/include/
 ```
 
-Note:
+**Note:**
 
 In some version *gstconfig.h* is not in */usr/local/include/gstreamer-1.0/gst/* but in */usr/local/lib/gstreamer-1.0/include/gst*.
 
