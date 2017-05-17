@@ -21,13 +21,26 @@ chmod +x gstreamer-build.sh
 ```
 After building success:
 
-Header is in /usr/local/inlude/gstreamer-1.0
+Header is in /usr/local/inlude/gstreamer-1.0 
 
 Lib is in /usr/local/lib
 
 ## 3. Config
 
-To link header & lib
+Copy header
+
+```Shell
+sudo cp -r /usr/local/include/gstreamer-1.0 /usr/include/
+```
+
+Note:
+
+In some version *gstconfig.h* is not in */usr/local/include/gstreamer-1.0/gst/* but in */usr/local/lib/gstreamer-1.0/include/gst*.
+
+Must copy it to */usr/local/include/gstreamer-1.0/gst/*
+
+
+To link lib
 
 ```Shell
 sudo nano /etc/ld.so.conf
