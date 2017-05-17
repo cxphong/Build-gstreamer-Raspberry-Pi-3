@@ -4,7 +4,7 @@ This is guide to build gstreamer from scratch. Building takes more 1h.
 
 Btw, I already built some version, so you can extract it to use
 
-# Build
+# Build from scratch
 
 ## 1. Uninstall default gstreamer 1.0
 
@@ -21,37 +21,51 @@ chmod +x gstreamer-build.sh
 ```
 After building success:
 
-Header is in /usr/local/inlude/gstreamer-1.0
+Header is in /usr/local/inlude/gstreamer-1.0 
 
 Lib is in /usr/local/lib
 
 ## 3. Config
 
-To link header & lib
+### Copy header
+
+```Shell
+sudo cp -r /usr/local/include/gstreamer-1.0 /usr/include/
+```
+
+**Note:**
+
+In some version *gstconfig.h* is not in */usr/local/include/gstreamer-1.0/gst/* but in */usr/local/lib/gstreamer-1.0/include/gst*.
+
+Must copy it to */usr/include/gstreamer-1.0/gst/*
+
+### To link lib
 
 ```Shell
 sudo nano /etc/ld.so.conf
 ```
 
-Add
+### Add
 
 ```Shell
 include /usr/local/lib
 ```
 
-Link 
+### Link 
 
 ```Shell
 sudo ldconfig
 ```
 
-# Replace 
+# Using prebuilt 
 
 ## 1. Delete old build
 	
 ```Shell
 sudo rm -rf /usr/local/include/gstreamer-1.0
 sudo rm -rf  /usr/include/gstreamer-1.0
+
+# Remove only gstreamer, in my case it has only gstreamer lib
 sudo rm -rf /usr/local/lib/*
 ```
 
