@@ -1,10 +1,6 @@
 #!/bin/bash --debugger
 set -e
 
-# rm -rf /usr/local/lib/* 
-# rm -rf /usr/local/include/gstreamer-1.0
-# rm -rf /usr/include/gstreamer-1.0
-
 # Create a log file of the build as well as displaying the build on the tty as it runs
 exec > >(tee build_gstreamer.log)
 exec 2>&1
@@ -71,14 +67,6 @@ cd ..
 
 cd gst-plugins-ugly
 ./autogen.sh --disable-gtk-doc
-make -j4
-sudo make install
-vc/include -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host/linux/" \
-LDFLAGS="-L/opt/vc/lib" \
---disable-gtk-doc --disable-opengl --enable-gles2 --enable-egl --disable-glx \
---disable-x11 --disable-wayland --enable-dispmanx \
---with-gles2-module-name=/opt/vc/lib/libGLESv2.so \
---with-egl-module-name=/opt/vc/lib/libEGL.so
 make -j4
 sudo make install
 cd ..
