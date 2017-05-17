@@ -64,6 +64,8 @@ sudo ldconfig
 ```Shell
 sudo rm -rf /usr/local/include/gstreamer-1.0
 sudo rm -rf  /usr/include/gstreamer-1.0
+
+# Remove only gstreamer, in my case it has only gstreamer lib
 sudo rm -rf /usr/local/lib/*
 ```
 
