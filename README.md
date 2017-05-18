@@ -6,7 +6,7 @@ Btw, I already built some version, so you can extract it to use.
 
 # Note
 
-From Gstreamer-1.3.90, *glimagesink* replaces *eglglessink*, and *glimagesink* does not automatically scale video to fit screen
+From gst-plugin-bad v1.3.1, *glimagesink* replaces *eglglessink*, and *glimagesink* does not automatically scale video to fit screen
 
 # Build from scratch
 
