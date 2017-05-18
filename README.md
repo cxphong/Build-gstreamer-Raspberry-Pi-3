@@ -89,3 +89,18 @@ sudo cp -r lib/* /usr/local/lib
 gst-launch-1.0 --version
 ```
 
+# Using eglglesink in later version
+
+## 1. Copy
+
+After install later version
+
+```
+cd gstreamer-1.2.4
+sudo cp -r gstreamer-1.0/gst/egl/ /usr/include/gstreamer-1.0
+sudo cp -r lib/*gl* /usr/local/lib/
+sudo cp lib/gstreamer-1.0/libgsteglglessink.* /usr/local/lib/gstreamer-1.0/
+```
+
+
+
