@@ -1,8 +1,12 @@
-The default Gstreamer version on Raspberry Pi 3 is 1.4.4, it has bugs. 
+The default Gstreamer version on Raspberry Pi 3 is 1.4.4. 
 
 This is guide to build gstreamer from scratch. Building takes more 1h.
 
-Btw, I already built some version, so you can extract it to use
+Btw, I already built some version, so you can extract it to use.
+
+# Note
+
+From Gstreamer-1.3.90, *glimagesink* replaces *eglglessink*, and *glimagesink* does not automatically scale video to fit screen
 
 # Build from scratch
 
