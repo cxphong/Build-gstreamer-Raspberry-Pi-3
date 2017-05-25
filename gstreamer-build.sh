@@ -76,7 +76,7 @@ cd gst-plugins-bad
 ./autogen.sh --disable-gtk-doc
 export CFLAGS='-I/opt/vc/include -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host/linux/'
 export LDFLAGS='-L/opt/vc/lib'
-./configure CFLAGS LDFLAGS\
+./configure CFLAGS='-I/opt/vc/include -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host/linux/' LDFLAGS\
 --disable-gtk-doc --disable-opengl --enable-gles2 --enable-egl --disable-glx \
 --disable-x11 --disable-wayland --enable-dispmanx \
 --with-gles2-module-name=/opt/vc/lib/libGLESv2.so \
