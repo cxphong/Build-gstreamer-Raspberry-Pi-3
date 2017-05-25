@@ -6,7 +6,7 @@ Btw, I already built some version, so you can extract it to use.
 
 # Note
 
-From Gstreamer-1.3.90, *glimagesink* replaces *eglglessink*, and *glimagesink* does not automatically scale video to fit screen
+From gst-plugin-bad v1.3.1, *glimagesink* replaces *eglglessink*, and *glimagesink* does not automatically scale video to fit screen
 
 # Build from scratch
 
@@ -88,4 +88,19 @@ sudo cp -r lib/* /usr/local/lib
 ```Shell
 gst-launch-1.0 --version
 ```
+
+# Using eglglesink in later version
+
+## 1. Copy
+
+After install later version
+
+```
+cd gstreamer-1.2.4
+sudo cp -r gstreamer-1.0/gst/egl/ /usr/include/gstreamer-1.0
+sudo cp -r lib/*gl* /usr/local/lib/
+sudo cp lib/gstreamer-1.0/libgsteglglessink.* /usr/local/lib/gstreamer-1.0/
+```
+
+
 
