@@ -29,7 +29,8 @@ sudo apt-get install -y --force-yes build-essential autotools-dev automake autoc
                                     libcdio-dev libdvdread-dev libmad0-dev libmp3lame-dev \
                                     libmpeg2-4-dev libopencore-amrnb-dev libopencore-amrwb-dev \
                                     libsidplay1-dev libtwolame-dev libx264-dev libusb-1.0 \
-                                    python-gi-dev yasm python3-dev libgirepository1.0-dev
+                                    python-gi-dev yasm python3-dev libgirepository1.0-dev \
+				    libsrtp-dev 
 
 # get the repos if they're not already there
 cd $HOME
@@ -46,6 +47,22 @@ cd gstreamer
 [ ! -d gst-plugins-ugly ] && git clone git://anongit.freedesktop.org/git/gstreamer/gst-plugins-ugly
 [ ! -d gst-omx ] && git clone git://anongit.freedesktop.org/git/gstreamer/gst-omx
 
+#libnice for webrtc
+[ ! -d libnice ] && git clone https://gitlab.freedesktop.org/libnice/libnice
+cd libnice
+./autogen.sh
+./configure --prefix=/usr --enable-compile-warnings=no
+make && sudo make install
+cd ..
+
+#webrtc-audio-processing for webrtcdsp
+[ ! -d webrtc-audio-processing ] git clone git://anongit.freedesktop.org/pulseaudio/webrtc-audio-processing
+cd webrtc-audio-processing
+./autogen.sh
+./configure
+make && sudo make install
+cd ..
+
 export LD_LIBRARY_PATH=/usr/local/lib/
 cd gstreamer
 ./autogen.sh --disable-gtk-doc
@@ -54,7 +71,8 @@ sudo make install
 cd ..
 
 cd gst-plugins-base
-./autogen.sh --disable-gtk-doc
+#  --disable-egl
+./autogen.sh --disable-gtk-doc --disable-examples
 make -j4
 sudo make install
 cd ..
@@ -76,7 +94,7 @@ cd gst-plugins-bad
 ./autogen.sh --disable-gtk-doc
 export CFLAGS='-I/opt/vc/include -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host/linux/'
 export LDFLAGS='-L/opt/vc/lib'
-./configure CFLAGS='-I/opt/vc/include -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host/linux/' LDFLAGS\
+./configure CFLAGS='-I/opt/vc/include -I/opt/vc/include/interface/vcos/pthreads -I/opt/vc/include/interface/vmcs_host/linux/' LDFLAGS='-L/opt/vc/lib' \
 --disable-gtk-doc --disable-opengl --enable-gles2 --enable-egl --disable-glx \
 --disable-x11 --disable-wayland --enable-dispmanx \
 --with-gles2-module-name=/opt/vc/lib/libGLESv2.so \
@@ -95,3 +113,9 @@ make CFLAGS+='-Wno-error -Wno-redundant-decls' LDFLAGS+='-L/opt/vc/lib' -j4
 sudo make install
 cd ..
 
+#finish up
+sudo ln -s /usr/local/include/gstreamer-1.0 /usr/include
+sudo ldconfig
+
+#print version
+gst-inspect-1.0 --gst-version
